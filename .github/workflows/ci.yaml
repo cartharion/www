@@ -70,7 +70,7 @@ jobs:
   lint:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/node-pnpm-setup
       - uses: ./.github/actions/setup-env
         with:
@@ -87,7 +87,7 @@ jobs:
       matrix:
         node-version: [18, 19, 20]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/node-pnpm-setup
         with:
           node-version: ${{ matrix.node-version }}
@@ -105,7 +105,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/node-pnpm-setup
       - uses: ./.github/actions/setup-env
         with:
@@ -151,7 +151,7 @@ jobs:
   # preview-deployemnt:
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
   #     - uses: ./.github/actions/node-pnpm-setup
   #     - uses: ./.github/actions/setup-env
   #       with:
@@ -172,7 +172,7 @@ jobs:
     needs:
       - merge-check
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/node-pnpm-setup
       - uses: ./.github/actions/setup-env
         with:
