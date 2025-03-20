@@ -18,6 +18,13 @@ const eslintConfig = [
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+    },
+  },
 ];
 
 export default eslintConfig;
