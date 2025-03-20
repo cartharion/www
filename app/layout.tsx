@@ -1,4 +1,6 @@
 import CookieBanner from '@/components/CookieBanner';
+import CloudflareWebAnalyticsProvider from '@/components/providers/CloudflareAnalytics';
+import { env } from '@/lib/env';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 
@@ -14,6 +16,9 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <html lang="en">
       <body>{children}</body>
       <CookieBanner />
+      <CloudflareWebAnalyticsProvider
+        token={env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN}
+      />
     </html>
   );
 }

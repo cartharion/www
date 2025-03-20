@@ -1,9 +1,13 @@
 import { createEnv, preset } from '@ashgw/ts-env';
+import { z } from 'zod';
 
 export const env = createEnv({
   vars: {
-    NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID: 'cartharion',
+    CLOUDFLARE_ANALYTICS_TOKEN: z.string().min(20),
+    NODE_ENV: z.enum(['preview', 'production']).optional(),
     ...preset('vercel'),
   },
-  skipValidation: typeof window === 'undefined', // skip validation on client side
+  disablePrefix: ['NODE_ENV'],
+  prefix: 'NEXT_PUBLIC',
+  skipValidation: typeof window === undefined, // skip validation on client side
 });
