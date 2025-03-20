@@ -99,8 +99,7 @@ export default function Index() {
       <footer className="py-8 px-6 border-t border-border relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Cartharion LLC. All rights reserved. | 1388 Haight St, San
-            Francisco, CA 94117
+            {new Date().getFullYear()} Cartharion LLC. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 mt-4 sm:mt-0">
             <a
