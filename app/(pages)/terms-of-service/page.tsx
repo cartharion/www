@@ -1,8 +1,31 @@
-'use client';
-
 import BackgroundEffect from '@/components/BackgroundEffect';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata = {
+  title: 'Terms of Service | Cartharion',
+  description:
+    'Review the Terms of Service for Cartharion LLC, outlining the rules and regulations for using our services.',
+  keywords: 'terms of service, Cartharion, user agreement, service terms',
+  alternates: {
+    canonical: 'https://cartharion.com/terms-of-service',
+  },
+  openGraph: {
+    title: 'Terms of Service | Cartharion',
+    description:
+      'Review the Terms of Service for Cartharion LLC, outlining the rules and regulations for using our services.',
+    url: 'https://cartharion.com/terms-of-service',
+    siteName: 'Cartharion',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service | Cartharion',
+    description:
+      'Review the Terms of Service for Cartharion LLC, outlining the rules and regulations for using our services.',
+  },
+};
 
 export default function TermsOfService() {
   return (
@@ -30,9 +53,6 @@ export default function TermsOfService() {
           </h1>
 
           <div className="space-y-6 text-muted-foreground">
-            <p>
-              <strong>Effective Date: [Insert Date]</strong>
-            </p>
             <p>
               Welcome to Cartharion LLC (&quot;Cartharion&quot;, &quot;we&quot;,
               &quot;us&quot;, or &quot;our&quot;). By accessing or using our

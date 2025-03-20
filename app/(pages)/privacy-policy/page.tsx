@@ -1,9 +1,37 @@
-'use client';
-
 import BackgroundEffect from '@/components/BackgroundEffect';
 import { COMPANY_ADDRESS } from '@/lib/consts';
 import { ArrowLeft } from 'lucide-react';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Cartharion',
+  description:
+    'Learn how Cartharion handles your personal information when using our websites and software applications.',
+  keywords: 'privacy policy, data privacy, personal information, Cartharion',
+  alternates: {
+    canonical: 'https://cartharion.com/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Cartharion',
+    description:
+      'Learn how Cartharion handles your personal information when using our websites and software applications.',
+    url: 'https://cartharion.com/privacy-policy',
+    siteName: 'Cartharion',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy | Cartharion',
+    description:
+      'Learn how Cartharion handles your personal information when using our websites and software applications.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicy() {
   return (
