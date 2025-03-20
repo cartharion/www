@@ -18,6 +18,9 @@ inputs:
   NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN:
     description: ''
     required: true
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION:
+    description: ''
+    required: true
 
 runs:
   using: 'composite'
@@ -28,6 +31,7 @@ runs:
       with:
         NODE_ENV: ${{ inputs.NODE_ENV }}
         NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ inputs.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}
+        NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ inputs.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
 
     - name: Build for Vercel
       shell: bash

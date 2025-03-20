@@ -7,6 +7,9 @@ inputs:
   NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN:
     description: 'Cloudflare analytics token'
     required: true
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION:
+    description: 'Google site verification'
+    required: true
 
 runs:
   using: composite
@@ -17,6 +20,7 @@ runs:
         declare -A env_vars=(
           ["NODE_ENV"]="${{ inputs.NODE_ENV }}"
           ["NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN"]="${{ inputs.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}"
+          ["NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"]="${{ inputs.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}"
         )
 
         for key in "${!env_vars[@]}"; do
