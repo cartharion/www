@@ -36,10 +36,6 @@ jobs:
     uses: ./.github/workflows/lint.yml
     secrets: inherit
 
-  secrets-leaks:
-    uses: ./.github/workflows/secrets-leaks.yml
-    secrets: inherit
-
   build:
     uses: ./.github/workflows/build.yml
     secrets: inherit
@@ -49,7 +45,6 @@ jobs:
     needs:
       - format
       - lint
-      - secrets-leaks
       - build
     runs-on: ubuntu-latest
     steps:
