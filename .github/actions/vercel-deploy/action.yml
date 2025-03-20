@@ -4,17 +4,17 @@ description: Deploy to Vercel and set the preview URL
 
 inputs:
   NODE_ENV:
-    description: "Vercel takes care of this"
+    description: 'Vercel takes care of this'
     required: true
   VERCEL_TOKEN:
-    description: "Vercel token for authentication"
+    description: 'Vercel token for authentication'
     required: true
   GITHUB_TOKEN:
-    description: "GitHub toaken"
+    description: 'GitHub toaken'
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Deploy to Vercel
       shell: bash

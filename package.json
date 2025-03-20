@@ -12,7 +12,7 @@
     "deploy:vercel-preview": "vercel deploy --prebuilt",
     "deploy:vercel-prod": "vercel deploy --prod --prebuilt",
     "build:vercel": "vercel build --yes",
-    "lint": "next lint",  
+    "lint": "next lint",
     "format": "prettier . --write",
     "format-check": "prettier --check ."
   },
