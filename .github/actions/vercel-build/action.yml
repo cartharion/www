@@ -15,7 +15,7 @@ inputs:
   VERCEL_PROJECT_ID:
     description: 'Vercel project ID'
     required: true
-  NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID:
+  NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN:
     description: ''
     required: true
 
@@ -27,7 +27,7 @@ runs:
     - uses: ./.github/actions/setup-env
       with:
         NODE_ENV: ${{ inputs.NODE_ENV }}
-        NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID: ${{ inputs.NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID }}
+        NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ inputs.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}
 
     - name: Build for Vercel
       shell: bash
