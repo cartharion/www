@@ -4,7 +4,7 @@ import GeometricShapes from '@/components/GeometricShapes';
 import TechBackground from '@/components/TechBackground';
 import { cn } from '@/lib/utils';
 import { ArrowDown, Mail } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 export default function Index() {
   const contactRef = useRef<HTMLDivElement>(null);
@@ -17,7 +17,7 @@ export default function Index() {
     <div className="min-h-screen relative overflow-hidden bg-background text-foreground">
       {/* Add back the animated background */}
       <TechBackground />
-
+      <GeometricShapes />
       {/* Background with noise texture */}
       <div className="fixed inset-0 -z-10 opacity-50">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-background/70" />
@@ -67,7 +67,7 @@ export default function Index() {
                   href="https://ashgw.me"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline highlight-underline"
+                  className="text-primary highlight-underline"
                 >
                   @ashgw
                 </a>
@@ -105,13 +105,13 @@ export default function Index() {
           </p>
           <div className="flex items-center space-x-6 mt-4 sm:mt-0">
             <a
-              href="#"
+              href="/privacy-policy"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors highlight-underline"
             >
               Privacy Policy
             </a>
             <a
-              href="#"
+              href="/terms-of-service"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors highlight-underline"
             >
               Terms of Service
