@@ -1,0 +1,24 @@
+name: 'Setup Environment Variables'
+description: 'Sets up env from GitHub Secrets'
+inputs:
+  NODE_ENV:
+    description: "either 'development', 'preview', or 'production' & defo not 'prod' or 'dev'"
+    required: true
+  NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID:
+    description: 'Google Analytics ID for the website'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Set up .env
+      shell: bash
+      run: |
+        declare -A env_vars=(
+          ["NODE_ENV"]="${{ inputs.NODE_ENV }}"
+          ["NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID"]="${{ inputs.NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID }}"
+        )
+
+        for key in "${!env_vars[@]}"; do
+          echo "${key}='${env_vars[$key]}'" >> .env
+        done

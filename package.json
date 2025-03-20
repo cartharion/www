@@ -2,11 +2,19 @@
   "name": "cartharion",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "deploy:vercel-preview": "vercel deploy --prebuilt",
+    "deploy:vercel-prod": "vercel deploy --prod --prebuilt",
+    "build:vercel": "vercel build --yes",
+    "lint": "next lint",
+    "format": "prettier . --write",
+    "format-check": "prettier --check ."
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -19,7 +27,10 @@
     "tw-animate-css": "^1.2.4"
   },
   "devDependencies": {
+    "vercel": "33.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@eslint/eslintrc": "^3",
+    "prettier": "~3.5.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -1,0 +1,45 @@
+feat:
+  - head-branch: ['^feature', 'feature', 'feat']
+
+docs:
+  - head-branch: ['^documentation', 'documentation', '^docs', 'docs']
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/docs/**'
+
+fix:
+  - head-branch: ['^fix', 'fixed']
+
+tooling:
+  - changed-files:
+      - any-glob-to-any-file:
+          - tooling/*
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/*
+
+infra:
+  - changed-files:
+      - any-glob-to-any-file:
+          - infra/*
+
+env:
+  - changed-files:
+      - any-glob-to-any-file:
+          - packages/env/*
+blog:
+  - changed-files:
+      - any-glob-to-any-file:
+          - apps/blog/*
+
+www:
+  - changed-files:
+      - any-glob-to-any-file:
+          - apps/www/*
+
+api:
+  - changed-files:
+      - any-glob-to-any-file:
+          - apps/api/*

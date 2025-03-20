@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-pr:
+    # need conventional commit validation so that the CHANGELOG is updated properly
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/validate-pr-title.yml
+    secrets: inherit
+
+  format:
+    uses: ./.github/workflows/format.yml
+    secrets: inherit
+
+  lint:
+    uses: ./.github/workflows/lint.yml
+    secrets: inherit
+
+  build:
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+
+  mergeable:
+    if: always()
+    needs:
+      - format
+      - lint
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: re-actors/alls-green@release/v1
+        id: all-green
+        with:
+          jobs: ${{ toJSON(needs) }}
+
+  # This needs my manual permission to dispatch
+  production-deployemnt:
+    if: github.ref == 'refs/heads/main'
+    needs: [mergeable]
+    uses: ./.github/workflows/production-deployment.yml
+    secrets: inherit
+
+  www-production-deployemnt:
+    needs: [production-deployemnt]
+    uses: ./.github/workflows/www-production-deployment.yml
+    secrets: inherit

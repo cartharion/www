@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  format:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/pnpm-install
+      - uses: ./.github/actions/setup-env
+        with:
+          NODE_ENV: 'production'
+          NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID }}
+
+      - name: format
+        run: pnpm format
