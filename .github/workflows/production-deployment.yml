@@ -1,0 +1,15 @@
+name: Production Deployment
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  deploy-production:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: re-actors/alls-green@release/v1
+        id: all-green
+        with:
+          jobs: ${{ toJSON(needs) }}

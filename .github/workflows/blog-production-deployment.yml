@@ -1,0 +1,33 @@
+name: CI / Blog production deployment
+
+on:
+  workflow_call:
+
+permissions:
+  pull-requests: write
+  contents: read
+  issues: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/vercel-build
+        with:
+          project_name: blog
+          NODE_ENV: production
+          NEXT_PUBLIC_WWW_URL: ${{ secrets.NEXT_PUBLIC_WWW_URL }}
+          NEXT_PUBLIC_BLOG_URL: ${{ secrets.NEXT_PUBLIC_BLOG_URL }}
+          NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID }}
+          NEXT_PUBLIC_BLOG_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_BLOG_GOOGLE_ANALYTICS_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_WWW_PROJECT_ID }}
+
+      - uses: ./.github/actions/vercel-deploy
+        with:
+          NODE_ENV: production
+          project_name: blog
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
