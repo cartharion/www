@@ -36,8 +36,8 @@ export default function Index() {
             <br /> Engineering the Future.
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground font-light max-w-2xl mx-auto text-balance">
-            We&apos;re a software company driving the next wave of AI innovation
-            and SaaS development.
+            We&apos;re a tech company rapidly developing AI-powered software
+            products for businesses and consumers alike.
           </p>
           <button
             onClick={scrollToContact}
@@ -54,9 +54,9 @@ export default function Index() {
         <div className="max-w-3xl mx-auto text-center space-y-12">
           <div className="py-10 px-8 sm:px-12 rounded-2xl backdrop-blur-xl bg-black/10 border border-white/10 animate-glow">
             <p className="text-lg sm:text-xl leading-relaxed text-balance font-grotesk">
-              Building intelligent software that matters. We apply AI to solve
-              real problems, creating tools that make complex workflows
-              intuitive and efficient.
+              We develop AI-driven software that automates workflows and boosts
+              productivity for businesses and everyday users, freeing people to
+              focus on what truly matters.
             </p>
 
             <div className="mt-8 pt-8 border-t border-white/10">
