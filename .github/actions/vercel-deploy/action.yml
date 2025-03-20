@@ -3,9 +3,6 @@ name: Vercel Preview Deployment
 description: Deploy to Vercel and set the preview URL
 
 inputs:
-  project_name:
-    description: "The working directory/project name you're trying to deploy. Example: 'www', 'blog'"
-    required: true
   NODE_ENV:
     description: "Vercel takes care of this"
     required: true
@@ -23,15 +20,13 @@ runs:
       shell: bash
       run: |
         if [ "${{ inputs.NODE_ENV }}" == "preview" ]; then
-          cd apps/${{ inputs.project_name }} && \
-          PREVIEW_URL=$(pnpm --filter @ashgw/${{ inputs.project_name }} deploy:vercel-preview --token=${{ inputs.VERCEL_TOKEN }} | grep -Eo 'https?://[^ ]+')
+          PREVIEW_URL=$(pnpm deploy:vercel-preview --token=${{ inputs.VERCEL_TOKEN }} | grep -Eo 'https?://[^ ]+')
           echo "PREVIEW_URL=$PREVIEW_URL" >> $GITHUB_ENV
         else
-          cd apps/${{ inputs.project_name }} && \
-          pnpm --filter @ashgw/${{ inputs.project_name }} deploy:vercel-prod --token=${{ inputs.VERCEL_TOKEN }}
+          pnpm deploy:vercel-prod --token=${{ inputs.VERCEL_TOKEN }}
         fi
 
-    - name: Notify mfs about the deployment URL
+    - name: Notify about the deployment URL
       if: ${{ inputs.NODE_ENV == 'preview' }}
       uses: actions/github-script@v6
       env:
