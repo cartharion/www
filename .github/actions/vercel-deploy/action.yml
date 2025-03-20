@@ -40,8 +40,6 @@ runs:
             repo: context.repo.repo,
             body: `## 🚀 Preview Deployment Ready! 
 
-            ### ✨ Project: \`${process.env.PROJECT_NAME}\`
-            
             🔍 **Preview URL:** [Check it out here](${process.env.PREVIEW_URL})
             
             ---
