@@ -30,6 +30,7 @@
     "vercel": "33.2.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@eslint/eslintrc": "^3",
+    "prettier": "~3.5.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
