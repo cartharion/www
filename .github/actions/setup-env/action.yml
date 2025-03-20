@@ -1,11 +1,11 @@
-name: "Setup Environment Variables"
-description: "Sets up env from GitHub Secrets"
+name: 'Setup Environment Variables'
+description: 'Sets up env from GitHub Secrets'
 inputs:
   NODE_ENV:
     description: "either 'development', 'preview', or 'production' & defo not 'prod' or 'dev'"
     required: true
   NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID:
-    description: "Google Analytics ID for the website"
+    description: 'Google Analytics ID for the website'
     required: true
 
 runs:

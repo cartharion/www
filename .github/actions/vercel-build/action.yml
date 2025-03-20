@@ -4,23 +4,23 @@ description: Build to deploy to vercel
 
 inputs:
   NODE_ENV:
-    description: ""
+    description: ''
     required: true
   VERCEL_TOKEN:
-    description: "Vercel token for authentication"
+    description: 'Vercel token for authentication'
     required: true
   VERCEL_ORG_ID:
-    description: "Vercel organization ID"
+    description: 'Vercel organization ID'
     required: true
   VERCEL_PROJECT_ID:
-    description: "Vercel project ID"
+    description: 'Vercel project ID'
     required: true
   NEXT_PUBLIC_WWW_GOOGLE_ANALYTICS_ID:
-    description: ""
+    description: ''
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - uses: actions/checkout@v3
     - uses: ./.github/actions/pnpm-install
@@ -35,5 +35,6 @@ runs:
         VERCEL_TOKEN: ${{ inputs.VERCEL_TOKEN }}
         VERCEL_ORG_ID: ${{ inputs.VERCEL_ORG_ID }}
         VERCEL_PROJECT_ID: ${{ inputs.VERCEL_PROJECT_ID }}
+
       run: |
-        pnpm build:vercel --token=$VERCEL_TOKEN
+        pnpm build:vercel-${{ inputs.NODE_ENV }} --token=$VERCEL_TOKEN

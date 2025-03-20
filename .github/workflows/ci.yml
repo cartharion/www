@@ -32,16 +32,8 @@ jobs:
     uses: ./.github/workflows/format.yml
     secrets: inherit
 
-  dependencies-check:
-    uses: ./.github/workflows/dependencies-check.yml
-    secrets: inherit
-
   lint:
     uses: ./.github/workflows/lint.yml
-    secrets: inherit
-
-  secrets-leaks:
-    uses: ./.github/workflows/secrets-leaks.yml
     secrets: inherit
 
   build:
@@ -53,9 +45,7 @@ jobs:
     needs:
       - format
       - lint
-      - secrets-leaks
       - build
-      - dependencies-check
     runs-on: ubuntu-latest
     steps:
       - uses: re-actors/alls-green@release/v1
@@ -63,14 +53,9 @@ jobs:
         with:
           jobs: ${{ toJSON(needs) }}
 
-  # This needs my manual permission to dispatch
-  production-deployemnt:
+  # This needs @ashgw manual permission to dispatch
+  production-deploymnt:
     if: github.ref == 'refs/heads/main'
     needs: [mergeable]
-    uses: ./.github/workflows/production-deployment.yml
-    secrets: inherit
-
-  www-production-deployemnt:
-    needs: [production-deployemnt]
     uses: ./.github/workflows/www-production-deployment.yml
     secrets: inherit

@@ -4,17 +4,17 @@ description: Deploy to Vercel and set the preview URL
 
 inputs:
   NODE_ENV:
-    description: "Vercel takes care of this"
+    description: 'Vercel takes care of this'
     required: true
   VERCEL_TOKEN:
-    description: "Vercel token for authentication"
+    description: 'Vercel token for authentication'
     required: true
   GITHUB_TOKEN:
-    description: "GitHub toaken"
+    description: 'GitHub toaken'
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Deploy to Vercel
       shell: bash
@@ -23,7 +23,7 @@ runs:
           PREVIEW_URL=$(pnpm deploy:vercel-preview --token=${{ inputs.VERCEL_TOKEN }} | grep -Eo 'https?://[^ ]+')
           echo "PREVIEW_URL=$PREVIEW_URL" >> $GITHUB_ENV
         else
-          pnpm deploy:vercel-prod --token=${{ inputs.VERCEL_TOKEN }}
+          pnpm deploy:vercel-production --token=${{ inputs.VERCEL_TOKEN }}
         fi
 
     - name: Notify about the deployment URL
@@ -40,8 +40,6 @@ runs:
             repo: context.repo.repo,
             body: `## 🚀 Preview Deployment Ready! 
 
-            ### ✨ Project: \`${process.env.PROJECT_NAME}\`
-            
             🔍 **Preview URL:** [Check it out here](${process.env.PREVIEW_URL})
             
             ---
