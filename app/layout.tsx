@@ -39,11 +39,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
-      <body>{children}</body>
-      {/* <CookieBanner /> */}
+      <meta
+        name="google-site-verification"
+        content={env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+      />
       <CloudflareWebAnalyticsProvider
         token={env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN}
       />
+      {/* <CookieBanner /> */}
+      <body>{children}</body>
     </html>
   );
 }
