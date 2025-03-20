@@ -1,3 +1,4 @@
+import CookieBanner from '@/components/CookieBanner';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
       <body>{children}</body>
+      <CookieBanner />
     </html>
   );
 }

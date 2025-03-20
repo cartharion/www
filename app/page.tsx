@@ -2,7 +2,6 @@
 
 import GeometricShapes from '@/components/GeometricShapes';
 import TechBackground from '@/components/TechBackground';
-import { cn } from '@/lib/utils';
 import { ArrowDown, Mail } from 'lucide-react';
 import { useRef } from 'react';
 
