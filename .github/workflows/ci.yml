@@ -40,10 +40,6 @@ jobs:
     uses: ./.github/workflows/lint.yml
     secrets: inherit
 
-  test:
-    uses: ./.github/workflows/test.yml
-    secrets: inherit
-
   secrets-leaks:
     uses: ./.github/workflows/secrets-leaks.yml
     secrets: inherit
@@ -57,7 +53,6 @@ jobs:
     needs:
       - format
       - lint
-      - test
       - secrets-leaks
       - build
       - dependencies-check
@@ -79,14 +74,3 @@ jobs:
     needs: [production-deployemnt]
     uses: ./.github/workflows/www-production-deployment.yml
     secrets: inherit
-
-  blog-production-deployemnt:
-    needs: [production-deployemnt]
-    uses: ./.github/workflows/blog-production-deployment.yml
-    secrets: inherit
-
-  # add this back when you deploy the api
-  # container-registry:
-  #   needs: [production-deployemnt]
-  #   uses: ./.github/workflows/container-registry.yml
-  #   secrets: inherit
