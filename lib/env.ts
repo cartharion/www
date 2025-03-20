@@ -1,7 +1,7 @@
 import { createEnv, preset } from '@ashgw/ts-env';
 import { z } from 'zod';
 
-const isBrowser = typeof window !== undefined;
+const isBrowser = typeof window !== 'undefined';
 
 export const env = createEnv({
   vars: {
