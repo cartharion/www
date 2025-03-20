@@ -7,7 +7,6 @@ import Link from 'next/link';
 export default function TermsOfService() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-background text-foreground">
-      {/* Background */}
       <BackgroundEffect />
 
       <div className="fixed inset-0 -z-10 opacity-50">

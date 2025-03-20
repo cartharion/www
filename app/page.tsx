@@ -14,7 +14,6 @@ export default function Index() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background text-foreground">
-      {/* Add back the animated background */}
       <TechBackground />
       <GeometricShapes />
       {/* Background with noise texture */}
