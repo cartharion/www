@@ -6,8 +6,6 @@ import { cn } from '@/lib/utils';
 import { ArrowDown, Mail } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
-import './styles/index.css';
-
 export default function Index() {
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -15,18 +13,26 @@ export default function Index() {
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(() => {
-    // Preload fonts to prevent layout shift
-    document.documentElement.classList.add('font-sans');
-  }, []);
-
   return (
     <div className="min-h-screen relative overflow-hidden bg-background text-foreground">
+      {/* Add back the animated background */}
       <TechBackground />
-      <GeometricShapes />
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20">
-        <div className="max-w-3xl mx-auto text-center space-y-8 section-fade-in z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-grotesk text-balance bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 dark:from-white dark:to-white/80">
+
+      {/* Background with noise texture */}
+      <div className="fixed inset-0 -z-10 opacity-50">
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-background/70" />
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
+        ></div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 animate-fade-in">
+        <div className="max-w-3xl mx-auto text-center space-y-8 z-10">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-grotesk text-balance bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 animate-pulse-slow">
             Cartharion.
             <br /> Engineering the Future.
           </h1>
@@ -36,11 +42,7 @@ export default function Index() {
           </p>
           <button
             onClick={scrollToContact}
-            className={cn(
-              'mt-8 inline-flex items-center gap-2 text-sm',
-              'text-muted-foreground hover:text-foreground',
-              'transition-all duration-300 group'
-            )}
+            className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 group"
           >
             <span>Learn more</span>
             <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
@@ -49,20 +51,13 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-6 relative z-10">
+      <section className="py-20 px-6 relative z-10 section-fade-in">
         <div className="max-w-3xl mx-auto text-center space-y-12">
-          <div
-            className={cn(
-              'py-10 px-8 sm:px-12 rounded-2xl',
-              'backdrop-blur-xl bg-white/5 dark:bg-black/10 border border-white/10',
-              'animate-glow border-glow'
-            )}
-          >
+          <div className="py-10 px-8 sm:px-12 rounded-2xl backdrop-blur-xl bg-black/10 border border-white/10 animate-glow">
             <p className="text-lg sm:text-xl leading-relaxed text-balance font-grotesk">
-              Our mission is to develop intelligent AI powered software
-              solutions that transform complex workflows into intuitive
-              experiences, thus making life easier for businesses or individuals
-              alike.
+              Building intelligent software that matters. We apply AI to solve
+              real problems, creating tools that make complex workflows
+              intuitive and efficient.
             </p>
 
             <div className="mt-8 pt-8 border-t border-white/10">
@@ -72,7 +67,7 @@ export default function Index() {
                   href="https://ashgw.me"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline highlight-underline"
                 >
                   @ashgw
                 </a>
@@ -83,18 +78,17 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section ref={contactRef} className="py-20 px-6 relative z-10">
-        <div className="max-w-xl mx-auto text-center space-y-8 section-fade-in">
+      <section
+        ref={contactRef}
+        className="py-20 px-6 relative z-10 section-fade-in"
+      >
+        <div className="max-w-xl mx-auto text-center space-y-8">
           <h2 className="text-2xl sm:text-3xl font-semibold font-grotesk">
             Get in Touch.
           </h2>
           <a
             href="mailto:hi@carthurion.com"
-            className={cn(
-              'inline-flex items-center gap-2 text-xl sm:text-2xl',
-              'highlight-underline hover:text-primary font-grotesk',
-              'transition-all duration-300'
-            )}
+            className="inline-flex items-center gap-2 text-xl sm:text-2xl hover:text-primary font-grotesk transition-all duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
           >
             <Mail className="h-5 w-5" />
             <span>hi@cartharion.com</span>
@@ -111,14 +105,14 @@ export default function Index() {
           </p>
           <div className="flex items-center space-x-6 mt-4 sm:mt-0">
             <a
-              href="/privacy-policy"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              href="#"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors highlight-underline"
             >
               Privacy Policy
             </a>
             <a
-              href="/terms-of-service"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              href="#"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors highlight-underline"
             >
               Terms of Service
             </a>

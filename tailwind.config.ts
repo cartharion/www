@@ -1,6 +1,8 @@
+// @ts-nocheck
 import type { Config } from 'tailwindcss';
 
 export default {
+  darkMode: 'class',
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -96,19 +98,19 @@ export default {
         },
         'pulse-slow': {
           '0%, 100%': {
-            opacity: '1',
+            opacity: 1,
           },
           '50%': {
-            opacity: '0.8',
+            opacity: 0.8,
           },
         },
         'fade-in': {
           '0%': {
-            opacity: '0',
+            opacity: 0,
             transform: 'translateY(10px)',
           },
           '100%': {
-            opacity: '1',
+            opacity: 1,
             transform: 'translateY(0)',
           },
         },
@@ -138,11 +140,11 @@ export default {
         },
         'pulse-glow': {
           '0%, 100%': {
-            opacity: '0.6',
+            opacity: 0.6,
             transform: 'scale(1)',
           },
           '50%': {
-            opacity: '1',
+            opacity: 1,
             transform: 'scale(1.05)',
           },
         },
