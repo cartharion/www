@@ -1,15 +1,12 @@
-import Link from 'next/link';
+'use client';
 
-export default function NotFound() {
+import Loading, { RGB } from 'loading-points';
+
+export default function LoadingScreen() {
+  const color = 'rgb(120, 130, 255)' as RGB;
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <Link href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </Link>
-      </div>
+    <div className="flex h-screen items-center justify-center">
+      <Loading glowColor={color} />
     </div>
   );
 }
