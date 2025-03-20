@@ -1,11 +1,12 @@
 'use client';
 
-import Loading from 'loading-points';
+import Loading, { RGB } from 'loading-points';
 
 export default function LoadingScreen() {
+  const color = 'rgb(120, 130, 255)' as RGB;
   return (
     <div className="flex h-screen items-center justify-center">
-      <Loading />
+      <Loading glowColor={color} />
     </div>
   );
 }

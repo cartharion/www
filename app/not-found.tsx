@@ -1,12 +1,7 @@
-'use client';
-
-import Loading, { RGB } from 'loading-points';
-
-export default function LoadingScreen() {
-  const color = 'rgb(120, 130, 255)' as RGB;
+export function NotFound() {
   return (
     <div className="flex h-screen items-center justify-center">
-      <Loading glowColor={color} />
+      404 | Resource not found.
     </div>
   );
 }
