@@ -10,7 +10,7 @@ export const env = createEnv({
       .string()
       .min(30)
       .regex(/^[a-zA-Z0-9-]+$/),
-    NODE_ENV: z.enum(['preview', 'production']).optional(),
+    NODE_ENV: z.enum(['preview', 'production', 'development']).optional(),
     ...preset('vercel'),
   },
   disablePrefix: ['NODE_ENV'],

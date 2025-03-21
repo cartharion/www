@@ -208,7 +208,7 @@ export default function TermsOfService() {
                 href="mailto:legal@cartharion.com"
                 className="text-primary hover:underline"
               >
-                legal@cartharion.coms
+                legal@cartharion.com
               </a>
               <br />
               <strong>Address:</strong> 1388 Haight St, San Francisco, CA 94117
@@ -222,7 +222,7 @@ export default function TermsOfService() {
                 href="https://github.com/cartharion/www/blob/main/app/(pages)/terms-of-service/page.tsx"
                 className="text-primary hover:underline"
               >
-                March 20th, 2025
+                March 21th, 2025
               </a>
             </p>
           </div>
