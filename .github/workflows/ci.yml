@@ -54,7 +54,7 @@ jobs:
           jobs: ${{ toJSON(needs) }}
 
   # This needs @ashgw manual permission to dispatch
-  production-deploymnt:
+  production-deployment:
     if: github.ref == 'refs/heads/main'
     needs: [mergeable]
     uses: ./.github/workflows/www-production-deployment.yml
