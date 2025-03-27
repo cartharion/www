@@ -1,6 +1,6 @@
-// import CookieBanner from '@/components/CookieBanner';
 import CloudflareWebAnalyticsProvider from '@/components/providers/CloudflareAnalytics';
 import { env } from '@/lib/env';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <CloudflareWebAnalyticsProvider
         token={env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN}
       />
-      {/* <CookieBanner /> */}
+      <GoogleAnalytics gaId={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
       <body>{children}</body>
     </html>
   );

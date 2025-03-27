@@ -6,6 +6,7 @@ const isBrowser = typeof window !== 'undefined';
 export const env = createEnv({
   vars: {
     CLOUDFLARE_ANALYTICS_TOKEN: z.string().min(20),
+    GOOGLE_ANALYTICS_ID: z.string().min(10).startsWith('G-'),
     GOOGLE_SITE_VERIFICATION: z
       .string()
       .min(30)

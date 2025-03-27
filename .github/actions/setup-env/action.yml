@@ -10,6 +10,9 @@ inputs:
   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION:
     description: 'Google site verification'
     required: true
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:
+    description: 'Google analytics ID'
+    required: true
 
 runs:
   using: composite
@@ -21,6 +24,7 @@ runs:
           ["NODE_ENV"]="${{ inputs.NODE_ENV }}"
           ["NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN"]="${{ inputs.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}"
           ["NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"]="${{ inputs.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}"
+          ["NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"]="${{ inputs.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}"
         )
 
         for key in "${!env_vars[@]}"; do
