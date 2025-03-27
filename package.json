@@ -101,7 +101,7 @@
     "postcss": "^8.5.3",
     "prettier": "~3.5.3",
     "tailwind-variants": "^0.1.20",
-    "tailwindcss": "^3.4.11",
+    "tailwindcss": "^4.0.17",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5",
     "vercel": "33.2.0"
