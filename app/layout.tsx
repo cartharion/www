@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     siteName: 'Cartharion',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/icon.png',
+        alt: 'Carthurion Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
