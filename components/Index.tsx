@@ -27,11 +27,11 @@ export default function Index() {
         <div className="max-w-3xl mx-auto text-center space-y-8 z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-grotesk text-balance bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 animate-pulse-slow">
             Cartharion.
-            <br /> Engineering the Future.
+            <br /> Software that moves like instinct.
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground font-light max-w-2xl mx-auto text-balance">
-            We&apos;re a tech company rapidly developing AI-powered software
-            products for businesses and consumers alike.
+            Using AI to amplify the human behind the screen. Whether you&apos;re
+            a creative or a builder, our tools are here to make you unstoppable.
           </p>
           <button
             onClick={scrollToContact}
@@ -48,14 +48,13 @@ export default function Index() {
         <div className="max-w-3xl mx-auto text-center space-y-12">
           <div className="py-10 px-8 sm:px-12 rounded-2xl backdrop-blur-xl bg-black/10 border border-white/10 animate-glow">
             <p className="text-lg sm:text-xl leading-relaxed text-balance font-grotesk">
-              We develop AI-driven software that automates workflows and boosts
-              productivity for businesses and everyday users, freeing people to
-              focus on what truly matters.
+              Cartharion is an independent software company crafting AI-driven
+              products that break molds.
+              <br /> by builders for builders.
             </p>
-
             <div className="mt-8 pt-8 border-t border-white/10">
               <p className="text-sm font-medium text-muted-foreground">
-                Founded by{' '}
+                Operated by{' '}
                 <a
                   href="https://ashgw.me"
                   target="_blank"
@@ -70,6 +69,30 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Products Section
+      <section className="py-20 px-6 relative z-10 section-fade-in">
+        <div className="max-w-5xl mx-auto text-center space-y-16">
+          <h2 className="text-3xl sm:text-4xl font-semibold font-grotesk">
+            Products We’re Building
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 text-left">
+            <div className="backdrop-blur-xl bg-black/10 border border-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold mb-2">Product 1</h3>
+              <p className="text-muted-foreground">
+                yippity yap
+              </p>
+            </div>
+            <div className="backdrop-blur-xl bg-black/10 border border-white/10 rounded-2xl p-6">
+              <h3 className="text-xl font-bold mb-2">Product 2</h3>
+              <p className="text-muted-foreground">
+                                yippity yap
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
       {/* Contact Section */}
       <section
         ref={contactRef}
@@ -80,7 +103,7 @@ export default function Index() {
             Get in Touch.
           </h2>
           <a
-            href="mailto:hi@carthurion.com"
+            href="mailto:hi@cartharion.com"
             className="inline-flex items-center gap-2 text-xl sm:text-2xl hover:text-primary font-grotesk transition-all duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
           >
             <Mail className="h-5 w-5" />
